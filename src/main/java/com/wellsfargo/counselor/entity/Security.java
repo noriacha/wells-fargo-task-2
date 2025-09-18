@@ -24,10 +24,9 @@ public class Security {
     @Column(nullable = false)
     private String quantity;
 
-
     @ManyToOne
-    @JoinColumn(name = "portfolio_id", nullable = false) //creates a foreign key column
     private Portfolio portfolio;
+
     protected Security(){
 
     }
@@ -40,6 +39,20 @@ public class Security {
         this.quantity = quantity;
     }
 
+
+
+    public long getSecurityId() {
+        return securityID;
+    }
+
+    public Portfolio getPortfolio() {
+        return portfolio;
+    }
+
+    public void setPortfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
+
+    }
     public void setName(String name){
         this.name = name;
     }

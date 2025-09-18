@@ -27,7 +27,6 @@ public class Client {
 
 
     @ManyToOne //Many Clients to one Advisor
-    @JoinColumn(name = "advisor_id", nullable = false) //creates a foreign key column
     private Advisor advisor;
 
     //Constructors
@@ -45,6 +44,17 @@ public class Client {
 
     //Getter & Setter
 
+    public Long getClientID(){
+        return ClientId;
+    }
+
+    public Advisor getAdvisor() {
+        return advisor;
+    }
+
+    public void setAdvisor(Advisor advisor) {
+        this.advisor = advisor;
+    }
     public Long getClientId(){
         return ClientId;
     }

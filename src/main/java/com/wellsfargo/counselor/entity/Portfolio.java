@@ -9,11 +9,11 @@ public class Portfolio {
     @GeneratedValue
     private Long portfolioId;
 
+    @ManyToOne
+    private Client client;
+
     @Column(nullable = false)
     private String creationDate;
-
-    //@JoinColumn(name = "client_id", nullable = false) //creates a foreign key column
-    //private Client client;
 
     //Constructors
     protected Portfolio(){
@@ -24,6 +24,15 @@ public class Portfolio {
         this.creationDate = creationDate;
     }
 
+    public Long getPortfolioId(){
+        return portfolioId;
+    }
+    public void setClient(Client client){
+        this.client = client;
+    }
+    public Client getClient(){
+        return client;
+    }
     public String getCreationDate(){
         return creationDate;
     }
