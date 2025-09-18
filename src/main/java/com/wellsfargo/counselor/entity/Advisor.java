@@ -6,13 +6,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity  //lets the computer know that this should be turned into a database
 public class Advisor {
 
-    @Id
-    @GeneratedValue()
+    @Id //marks advisor as a primary key
+    @GeneratedValue() //this will tell the computer to auto generate the advisorId
     private long advisorId;
 
+    //must be a value(can not be empty)
     @Column(nullable = false)
     private String firstName;
 
@@ -28,10 +29,13 @@ public class Advisor {
     @Column(nullable = false)
     private String email;
 
+    // advisorId | firstName | lastName | address | phone | email -> how the database will look
+
+    //Must have a default constructor, so it can fill in the fields with the data from the database
     protected Advisor() {
 
     }
-
+    //Constructor; this is used when creating an advisor
     public Advisor(String firstName, String lastName, String address, String phone, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,6 +44,7 @@ public class Advisor {
         this.email = email;
     }
 
+    //These are Getters and Setter; which are just ways to read and change values
     public Long getAdvisorId() {
         return advisorId;
     }
